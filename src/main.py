@@ -6,6 +6,7 @@ import retrieve_html as htm
 
 if __name__ == "__main__":
     isValid = True
+    isInvalid = False
     while isValid:
 
         # Attempt to read input and throw an exception if invalid
