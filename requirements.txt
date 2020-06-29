@@ -5,4 +5,4 @@ pylint==1.9.5
 pytest==4.6.11
 pytest-cov==2.10.0
 requests==2.21.0
-validators==0.12.4
+validators==0.12.6
