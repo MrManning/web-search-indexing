@@ -1,6 +1,6 @@
 import validators
 import src.retrieve_html as htm
-
+import src.pre_processing as pp
 
 if __name__ == "__main__":
     isValid = True
@@ -26,7 +26,9 @@ if __name__ == "__main__":
             isValid = False
         else:
             if validators.url(init_message):
-                print(htm.get_html(init_message, 0))
+                html_raw = htm.get_html(init_message)
+                html_extracted = htm.extract_relevant_html(html_raw)
+                html_processed = pp.pre_processing(html_extracted)
             else:
                 print("Invalid url submitted: '" +
                       init_message + "'. Skipping....")
