@@ -37,5 +37,5 @@ def extract_relevant_html(html):
     [script.extract() for script in html.find_all('script')]
 
     # Add extracted text to main text
-    all_text += html.get_text()
+    all_text += html.get_text(" ")
     return all_text
