@@ -25,10 +25,14 @@ if __name__ == "__main__":
             print("Goodbye!")
             isValid = False
         else:
-            if validators.url(init_message):
-                html_raw = htm.get_html(init_message)
-                html_extracted = htm.extract_relevant_html(html_raw)
-                html_processed = pp.pre_processing(html_extracted)
-            else:
-                print("Invalid url submitted: '" +
-                      init_message + "'. Skipping....")
+            protocol = "https://www."
+            if protocol not in init_message:
+                init_message = protocol + init_message
+
+                if validators.url(init_message):
+                    html_raw = htm.get_html(init_message)
+                    html_extracted = htm.extract_relevant_html(html_raw)
+                    tokens, tags = pp.pre_processing(html_extracted)
+                else:
+                    print("Invalid url submitted: '" +
+                          init_message + "'. Skipping....")
