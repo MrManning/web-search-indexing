@@ -4,28 +4,28 @@ from src.helpers import remove_extra_spaces, remove_punctuation
 accepted_string = "This is a test example"
 
 
-def test_multiple_spaces(self):
+def test_multiple_spaces():
     multiple_spaces = "This  is a    test   example"
     res = remove_extra_spaces(multiple_spaces)
-    assert self.accepted_string == res
+    assert accepted_string == res
 
 
-def test_multiple_newlines(self):
+def test_multiple_newlines():
     multiple_spaces = "This    \n is a test \n \n example"
     res = remove_extra_spaces(multiple_spaces)
-    assert self.accepted_string == res
+    assert accepted_string == res
 
 
-def test_multiple_tabs(self):
+def test_multiple_tabs():
     multiple_spaces = "This \t\t is a \t test \t example"
     res = remove_extra_spaces(multiple_spaces)
-    assert self.accepted_string == res
+    assert accepted_string == res
 
 
-def test_multiple_whitespace_characters(self):
+def test_multiple_whitespace_characters():
     multiple_spaces = "This \t is \n     a \t test \n example"
     res = remove_extra_spaces(multiple_spaces)
-    assert self.accepted_string == res
+    assert accepted_string == res
 
 
 def test_remove_punctuation():
