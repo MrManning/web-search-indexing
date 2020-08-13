@@ -1,9 +1,13 @@
-import validators
-import src.retrieve_html as htm
 import src.pre_processing as pp
+import src.retrieve_html as htm
+import validators
+
+from src.keyword_selection import keyword_selection
 
 if __name__ == "__main__":
     isValid = True
+    protocols = ["https://", "http://"]
+
     while isValid:
 
         # Attempt to read input and throw an exception if invalid
@@ -25,14 +29,14 @@ if __name__ == "__main__":
             print("Goodbye!")
             isValid = False
         else:
-            protocol = "https://www."
-            if protocol not in init_message:
-                init_message = protocol + init_message
+            if not any(init_message.startswith(s) for s in protocols):
+                init_message = protocols[0] + init_message
 
                 if validators.url(init_message):
                     html_raw = htm.get_html(init_message)
                     html_extracted = htm.extract_relevant_html(html_raw)
-                    tokens, tags = pp.pre_processing(html_extracted)
+                    pp_tokens, pp_tags = pp.pre_processing(html_extracted)
+                    keyword_selection(pp_tokens, pp_tags)
                 else:
                     print("Invalid url submitted: '" +
                           init_message + "'. Skipping....")
