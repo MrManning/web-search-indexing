@@ -1,4 +1,4 @@
-import requests
+from requests import get
 
 from bs4 import BeautifulSoup
 
@@ -10,7 +10,7 @@ def get_html(url):
     :return: a nicely formatted string of the HTML retrieved
     """
     # Gets the raw HTML with the tags
-    response = requests.get(url)
+    response = get(url)
     beau_soup = BeautifulSoup(response.content, 'html.parser')
 
     return beau_soup
@@ -35,7 +35,9 @@ def extract_relevant_html(html):
             continue
 
     # Remove all script tags
-    [script.extract() for script in html.find_all('script')]
+    for script in html.find_all('script'):
+        script.extract()
+    # [script.extract() for script in html.find_all('script')]
 
     # Add extracted text to main text
     all_text += html.get_text(" ")

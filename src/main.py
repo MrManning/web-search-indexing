@@ -5,10 +5,10 @@ import validators
 from src.keyword_selection import keyword_selection
 
 if __name__ == "__main__":
-    isValid = True
+    IS_VALID = True
     protocols = ["https://", "http://"]
 
-    while isValid:
+    while IS_VALID:
 
         # Attempt to read input and throw an exception if invalid
         try:
@@ -27,7 +27,7 @@ if __name__ == "__main__":
         # Checks where the user has entered the command to exit
         if init_message == "exit":
             print("Goodbye!")
-            isValid = False
+            IS_VALID = False
         else:
             if not any(init_message.startswith(s) for s in protocols):
                 init_message = protocols[0] + init_message

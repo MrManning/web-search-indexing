@@ -1,0 +1,5 @@
+validators>=0.12.6
+nltk>=3.4
+requests>=2.21.0
+bs4>=0.0.1
+beautifulsoup4>=4.9.1
