@@ -27,4 +27,3 @@ def pre_processing(html):
         pos_list.extend(nltk.pos_tag(words))
 
     return token_list, pos_list
-

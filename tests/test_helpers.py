@@ -29,8 +29,8 @@ def test_multiple_whitespace_characters():
 
 
 def test_remove_punctuation():
-    multiple_punct = [".", "a", "£30", "{", "t!st", "{example}"]
-    res = remove_punctuation(multiple_punct)
+    multiple_punctuation = [".", "a", "£30", "{", "t!st", "{example}"]
+    res = remove_punctuation(multiple_punctuation)
     accepted_list = ["a", "{example}", "£30", "t!st"]
 
     assert Counter(accepted_list) == Counter(res)

@@ -1,12 +1,12 @@
 import nltk
-
-nltk.download('stopwords')
 import re
 import string
 
-punct = set(string.punctuation)
-punct.update(['...', '£', '•'])
-punct = ''.join(punct)
+nltk.download('stopwords')
+
+punctuation = set(string.punctuation)
+punctuation.update(['...', '£', '•'])
+punctuation = ''.join(punctuation)
 
 stopwords = set(nltk.corpus.stopwords.words('english'))
 
@@ -16,8 +16,8 @@ def remove_extra_spaces(text):
 
 
 def remove_punctuation(word_list, word_list_type="list"):
-    # regex = re.compile("[%s]" % re.escape(punct))
-    regex = re.compile("^([%s]|([%s]+))$" % (re.escape(punct), re.escape(punct)))
+    # regex = re.compile("[%s]" % re.escape(punctuation))
+    regex = re.compile("^([%s]|([%s]+))$" % (re.escape(punctuation), re.escape(punctuation)))
 
     if word_list_type == "list":
         punctuation_less = [regex.sub('', term) for term in word_list if regex.sub('', term)]
