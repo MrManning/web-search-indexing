@@ -1,5 +1,5 @@
 from collections import Counter
-from src.helpers import remove_extra_spaces, remove_punctuation, remove_digits
+from src.helpers import remove_extra_spaces, remove_punctuation, remove_digits, remove_stopwords
 
 accepted_string = "This is a test example"
 
