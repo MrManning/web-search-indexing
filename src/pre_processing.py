@@ -3,7 +3,7 @@ import nltk
 from src.helpers import remove_extra_spaces
 
 
-def pre_processing(html):
+def tokenization(html):
     """Minimises the HTML into individual sentences removing additional whitespace, then word tokens in lowercase form
 
     :param html:
@@ -14,11 +14,11 @@ def pre_processing(html):
     # Creates a list for every variable using a loop
     sent_list, token_list, pos_list = ([] for _ in range(3))
 
-    # For loop tokenizes the html into sentences
+    # For loop to tokenize the html into sentences
     for sentences in nltk.sent_tokenize(stripped):
         sent_list.append(sentences)
 
-        # For loop tokenizes sentences into words
+        # For loop to tokenize sentences into words
         words = [x.lower() for x in nltk.word_tokenize(sentences.replace("/", " "))]
         for token in words:
             token_list.append(token)

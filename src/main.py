@@ -35,7 +35,7 @@ if __name__ == "__main__":
                 if validators.url(init_message):
                     html_raw = htm.get_html(init_message)
                     html_extracted = htm.extract_relevant_html(html_raw)
-                    pp_tokens, pp_tags = pp.pre_processing(html_extracted)
+                    pp_tokens, pp_tags = pp.tokenization(html_extracted)
                     keyword_selection(pp_tokens, pp_tags)
                 else:
                     print("Invalid url submitted: '" +

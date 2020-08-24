@@ -41,9 +41,9 @@ def test_remove_punctuation():
 
 
 def test_remove_digits():
-    multiple_digits = ["30", "2004-12", "a number 42", "test", "empty", "2020"]
+    multiple_digits = ["30", "2004-12", "a number 42", "test", "empty", "2020", "2020-123"]
     result = remove_digits(multiple_digits)
-    accepted_list = ["2004-12", "a number 42", "empty", "test"]
+    accepted_list = ["2004-12", "a number 42", "empty", "test", "2020-123"]
 
     assert Counter(result) == Counter(accepted_list)
 
